@@ -63,9 +63,8 @@ class BundleAnalyzerPlugin {
         setImmediate(async () => {
           try {
             await Promise.all(actions.map(action => action()));
+          } finally {
             callback();
-          } catch (e) {
-            callback(e);
           }
         });
       } else {
